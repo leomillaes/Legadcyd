@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra Empresa</title>
+  <!-- Vinculación del archivo CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <h1>Legadcy</h1>
+    <nav>
+      <a href="#empresa">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- CARRUSEL DE IMÁGENES -->
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="https://picsum.photos/id/1018/1200/400" alt="Innovación">
+      <div class="caption">
+        <h2>Ejemplo 1</h2>
+        <p>Descripcion</p>
+      </div>
+    </div>
+
+    <div class="carousel-slide">
+      <img src="https://picsum.photos/id/1060/1200/400" alt="Equipo">
+      <div class="caption">
+        <h2>Ejemplo 2</h2>
+        <p>Descripcion 2.</p>
+      </div>
+    </div>
+
+    <div class="carousel-slide">
+      <img src="https://picsum.photos/id/180/1200/400" alt="Estrategia">
+      <div class="caption">
+        <h2>Ejemplo 3</h2>
+        <p>Descripcion 3.</p>
+      </div>
+    </div>
+
+    <!-- Controles del carrusel -->
+    <button class="prev" id="prevBtn">&#10094;</button>
+    <button class="next" id="nextBtn">&#10095;</button>
+  </div>
+
+  <main class="container">
+    <!-- SECCIÓN DE LA EMPRESA -->
+    <section id="empresa">
+      <h2 class="section-title">Nuestros Proyectos</h2>
+      <div class="grid-company">
+        <div class="card">
+          <h3>Campana BTL verano '26</h3>
+          <p>Descripcion campana 1.</p>
+        </div>
+        <div class="card">
+          <h3>Campana markeying '26</h3>
+          <p>Descripcion campana 2.</p>
+        </div>
+        <div class="card">
+          <h3>Campana 3 '26</h3>
+          <p>Descripcion campana 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO -->
+    <section id="contacto">
+      <h2 class="section-title">Envíanos un Mensaje</h2>
+      <div class="contact-section">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" placeholder="tu@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" placeholder="Motivo de tu mensaje" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar Correo</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER CON ENLACES Y LÍNEA SEPARADORA -->
+  <footer>
+    <div class="social-links">
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+
+    <hr class="footer-divider">
+
+    <p>&copy; 2026 Legadcy Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Vinculación del archivo JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

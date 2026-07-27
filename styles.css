@@ -8,6 +8,7 @@
 html {
   scroll-behavior: smooth;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -16,12 +17,11 @@ body {
   font-family: Arial, "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 1.4;
+  width: 100%;
 }
 
-.container {
+.full-width-wrapper {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .section-title {
@@ -50,7 +50,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 1.5rem 2rem 1.5rem;
+  padding: 5rem 2rem 2rem 2rem;
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(40px);
@@ -125,13 +125,14 @@ nav a:hover {
 }
 
 .hero-content {
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .company-logo {
   width: 100%;
-  max-width: 500px;
+  max-width: 240px;
   min-width: 120px;
   height: auto;
   padding: clamp(25px, 20%, 45px);
@@ -179,54 +180,107 @@ nav a:hover {
 }
 
 
-/* --- CARRUSEL EN PROYECTOS --- */
+/* --- AJUSTE DE ALINEACIÓN AL NAVEGAR A PROYECTOS --- */
+#proyectos {
+  scroll-margin-top: 70px; /* Compensación equivalente a la altura del header */
+}
+
+.full-screen-section {
+  padding: 1.5rem 0 0 0 !important; /* Ajuste de relleno superior interno */
+  width: 100vw;
+  height: calc(100vh - 70px);       /* Ajusta la altura visible quitando el header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#proyectos .section-title {
+  margin-bottom: 1rem;
+  z-index: 2;
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  height: 480px;
+  flex: 1; /* Ocupa todo el alto restante de la pantalla debajo del título */
   overflow: hidden;
   background-color: #2A2A2A;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+}
+
+.full-screen-section .carousel-overlay-title {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #2A2A2A;
+  border-radius: 0;
 }
 
 .carousel-slide {
   display: none;
   height: 100%;
+  width: 100%;
   position: relative;
 }
 
 .carousel-slide.active {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out;
+  display: flex;             /* Cambiado a flex para centrar contenido */
+  align-items: center;       /* Centrado vertical */
+  justify-content: center;   /* Centrado horizontal */
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .carousel-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.85;
+  z-index: 1;
 }
 
 .caption {
-  position: absolute;
-  bottom: 15%;
-  left: 8%;
+  position: relative;
+  z-index: 2;
+  text-align: center;        /* Alinea el texto al centro */
   color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  padding: 0 1rem;
 }
 
 .caption h2 {
   font-family: Georgia, "Lora", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   color: #FFFFFF;
   margin-bottom: 0.5rem;
 }
 
 .caption p {
-  font-size: 16px;
+  font-size: 18px;
+}
+
+/* Animación corregida que no afecta la alineación */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
 }
 
 .prev, .next {
@@ -243,14 +297,15 @@ nav a:hover {
   border-radius: 50%;
   user-select: none;
   transition: background 0.3s;
+  z-index: 5;
 }
 
 .prev:hover, .next:hover {
   background: rgba(0, 0, 0, 0.8);
 }
 
-.prev { left: 15px; }
-.next { right: 15px; }
+.prev { left: 20px; }
+.next { right: 20px; }
 
 @keyframes fadeIn {
   from { opacity: 0.4; }
@@ -261,10 +316,9 @@ nav a:hover {
 /* --- SECCIÓN MARCAS / CLIENTES --- */
 .brands-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1000px;
   margin-top: 1rem;
 }
 
@@ -302,10 +356,9 @@ nav a:hover {
 /* --- SECCIÓN SERVICIOS --- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1100px;
 }
 
 .service-card {
@@ -345,10 +398,9 @@ nav a:hover {
 /* --- SECCIÓN INFORMACIÓN DE CONTACTO --- */
 .info-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   width: 100%;
-  max-width: 1100px;
 }
 
 .info-card {
@@ -396,7 +448,7 @@ nav a:hover {
   padding: 30px;
   border-radius: 8px;
   width: 100%;
-  max-width: 600px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -460,6 +512,7 @@ footer {
   background: #1E1E1E;
   color: #B8B8B8;
   font-size: 13px;
+  width: 100%;
 }
 
 .social-links {
@@ -485,11 +538,11 @@ footer {
   border: none;
   border-top: 1px solid #333;
   margin: 0 auto 1rem auto;
-  max-width: 800px;
+  width: 100%;
 }
 
 
-/* --- ADAPTACIÓN CELULAR (MENÚ HAMBURGUESA Y 2 COLUMNAS) --- */
+/* --- ADAPTACIÓN CELULAR (2 COLUMNAS Y MENÚ) --- */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -548,4 +601,41 @@ footer {
   .info-card p {
     font-size: 13px;
   }
+}
+
+/* --- BARRA DE ICONOS DE REDES SOCIALES (SEPARADOS) --- */
+.social-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+.social-icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background-color: #2A2A2A;
+  color: #E29A33;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon-btn:hover {
+  background-color: #0599DF;
+  color: #FFFFFF;
+  border-color: #0599DF;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(5, 153, 223, 0.3);
+}
+
+.social-icon-btn svg {
+  fill: currentColor;
 }

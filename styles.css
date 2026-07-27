@@ -1,52 +1,185 @@
-/* General */
+/* --- CONFIGURACIÓN GENERAL --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: auto;
 }
 
 body {
   background-color: #1E1E1E;
-  color: #1E1E1E;
-  line-height: 1.6;
+  color: #B8B8B8;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
-/* Header & Nav */
-header {
-  background-color: #1E1E1E;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  color: #0599DF;
+  margin-bottom: 0.5rem;
+  font-family: Georgia, "Lora", serif;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  text-align: center;
   color: #B8B8B8;
-  padding: 1rem 2rem;
-  position: sticky;
+  margin-bottom: 2.5rem;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.4;
+}
+
+.snap-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.5rem 2rem 1.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.snap-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- NAVEGACIÓN --- */
+header {
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 0.8rem 2rem;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #2A2A2A;
 }
 
-header h1 {
-  font-size: 1.3rem;
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo {
+  height: 28px;
+  width: auto;
+  min-width: 120px;
+  object-fit: contain;
+  padding: 4px;
 }
 
 nav a {
   color: #E29A33;
-  text-decoration: #0599DF;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
   margin-left: 1.5rem;
   transition: color 0.2s;
 }
 
 nav a:hover {
   color: #0599DF;
+  text-decoration: underline;
 }
 
-/* Carrusel de Imágenes */
+
+/* --- SECCIÓN HERO --- */
+.hero-section {
+  text-align: center;
+  background-color: #1E1E1E;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.company-logo {
+  width: 100%;
+  max-width: 500px;
+  min-width: 120px;
+  height: auto;
+  padding: clamp(25px, 20%, 45px);
+  border: none;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.hero-content h2 {
+  font-family: Georgia, "Lora", serif;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #0599DF;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  color: #B8B8B8;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.btn-hero {
+  display: inline-block;
+  margin-top: 1.8rem;
+  padding: 0.85rem 2rem;
+  background-color: transparent;
+  color: #E29A33;
+  border: 2px solid #E29A33;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: #E29A33;
+  color: #1E1E1E;
+  transform: translateY(-2px);
+}
+
+
+/* --- CARRUSEL EN PROYECTOS --- */
 .carousel-container {
   position: relative;
-  max-width: 100%;
-  height: 400px;
+  width: 100%;
+  max-width: 1000px;
+  height: 480px;
   overflow: hidden;
-  background-color: #1E1E1E;
+  background-color: #2A2A2A;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-slide {
@@ -69,18 +202,24 @@ nav a:hover {
 
 .caption {
   position: absolute;
-  bottom: 20%;
-  left: 10%;
+  bottom: 15%;
+  left: 8%;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .caption h2 {
-  font-size: 2.2rem;
+  font-family: Georgia, "Lora", serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
   margin-bottom: 0.5rem;
 }
 
-/* Botones del Carrusel */
+.caption p {
+  font-size: 16px;
+}
+
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -91,7 +230,7 @@ nav a:hover {
   font-weight: bold;
   font-size: 18px;
   border: none;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   user-select: none;
   transition: background 0.3s;
@@ -109,109 +248,213 @@ nav a:hover {
   to { opacity: 1; }
 }
 
-/* Información de la Empresa */
-.container {
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
 
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #0599DF;
-}
-
-.grid-company {
+/* --- SECCIÓN MARCAS / CLIENTES --- */
+.brands-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 1rem;
 }
 
-.card {
-  background: #1E1E1E;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px #E29A33;
-  border: 1px solid #e2e8f0;
+.brand-item {
+  background: #2A2A2A;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.card h3 {
-  color: #B8B8B8;
+.brand-item:hover {
+  transform: translateY(-4px);
+  border-color: #E29A33;
+}
+
+.brand-item img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.brand-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+
+/* --- SECCIÓN SERVICIOS --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.service-card {
+  background: #2A2A2A;
+  padding: 2.5rem 1.8rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #E29A33;
+}
+
+.service-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.card p {
-  color: #B8B8B8; /* <--- Cambia este valor hexadecimal por el color que prefieras */
+.service-card h3 {
+  font-family: Georgia, "Lora", serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #E29A33;
+  margin-bottom: 0.8rem;
 }
 
-/* Sección de Contacto */
+.service-card p {
+  color: #B8B8B8;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+
+/* --- SECCIÓN INFORMACIÓN DE CONTACTO --- */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.info-card {
+  background: #2A2A2A;
+  padding: 2.5rem 1.8rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  border-color: #0599DF;
+}
+
+.info-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  font-family: Georgia, "Lora", serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #E29A33;
+  margin-bottom: 0.8rem;
+}
+
+.info-card p {
+  color: #B8B8B8;
+  font-size: 16px;
+}
+
+
+/* --- SECCIÓN FORMULARIO DE MENSAJE --- */
+.legadcy-section {
+  background-color: #1E1E1E;
+  color: #B8B8B8;
+  padding: 40px 20px;
+}
+
 .contact-section {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
-  max-width: 650px;
-  margin: 0 auto 4rem auto;
+  background-color: #2A2A2A;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form-group {
-  margin-bottom: 1.25rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-family: Arial, "Inter", sans-serif;
+  font-size: 13px;
+  color: #E29A33;
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #cbd5e1;
+  font-family: Arial, "Inter", sans-serif;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #333333;
   border-radius: 6px;
-  font-size: 1rem;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #2563eb;
+  border-color: #0599DF;
 }
 
 .btn-submit {
-  width: 100%;
-  background-color: #2563eb;
-  color: white;
+  font-family: Arial, "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #0599DF;
+  color: #FFFFFF;
   border: none;
-  padding: 0.85rem;
-  font-size: 1rem;
-  font-weight: 600;
   border-radius: 6px;
+  padding: 14px 28px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .btn-submit:hover {
-  background-color: #1d4ed8;
+  background-color: #047bb3;
 }
 
-/* Footer & Redes Sociales */
+
+/* --- FOOTER --- */
 footer {
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   background: #1E1E1E;
-  color: #94a3b8;
-  font-size: 0.9rem;
+  color: #B8B8B8;
+  font-size: 13px;
 }
 
 .social-links {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -220,7 +463,7 @@ footer {
 .social-links a {
   color: #E29A33;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   transition: color 0.2s;
 }
 
@@ -231,7 +474,7 @@ footer {
 
 .footer-divider {
   border: none;
-  border-top: 1px solid #334155;
-  margin: 0 auto 1.2rem auto;
+  border-top: 1px solid #333;
+  margin: 0 auto 1rem auto;
   max-width: 800px;
 }

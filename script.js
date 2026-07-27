@@ -1,4 +1,4 @@
-/* --- LÓGICA DEL CARRUSEL DE IMÁGENES --- */
+/* --- CARRUSEL DE IMÁGENES --- */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const prevBtn = document.getElementById('prevBtn');
@@ -17,19 +17,17 @@ function moveSlide(step) {
   showSlide(currentSlide + step);
 }
 
-// Event listeners para los botones del carrusel
 if (prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => moveSlide(-1));
   nextBtn.addEventListener('click', () => moveSlide(1));
 }
 
-// Cambio automático cada 5 segundos
 setInterval(() => {
   moveSlide(1);
 }, 5000);
 
 
-/* --- LÓGICA DEL FORMULARIO DE CORREO --- */
+/* --- FORMULARIO DE CONTACTO --- */
 const form = document.getElementById('contactForm');
 
 if (form) {
@@ -39,11 +37,34 @@ if (form) {
     const nombre = document.getElementById('nombre').value;
     const email = document.getElementById('email').value;
     const asunto = document.getElementById('asunto').value;
-    const mensaje = document.getElementById('mensaje').value;
+    const mensaje = document.getElementById('mensajeForm').value;
 
-    const correoEmpresa = "contacto@miempresa.com";
+    const correoEmpresa = "legadcymkt@gmail.com";
     const cuerpoEmail = `Nombre: ${nombre}%0D%0ACorreo de contacto: ${email}%0D%0A%0D%0AMensaje:%0D%0A${encodeURIComponent(mensaje)}`;
 
     window.location.href = `mailto:${correoEmpresa}?subject=${encodeURIComponent(asunto)}&body=${cuerpoEmail}`;
   });
 }
+
+
+/* --- ANIMACIÓN EN SCROLL --- */
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const snapSections = document.querySelectorAll('.snap-section');
+  snapSections.forEach(section => observer.observe(section));
+});

@@ -1,5 +1,5 @@
 /* --- CARRUSEL DE IMÁGENES --- */
-let currentSlide = 1;
+let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');

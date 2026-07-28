@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GENERAL --- */
+/* --- CONFIGURACIÓN GENERAL Y RESET --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -64,7 +64,7 @@ body {
 }
 
 
-/* --- NAVEGACIÓN --- */
+/* --- HEADER Y NAVEGACIÓN --- */
 header {
   background-color: rgba(30, 30, 30, 0.95);
   backdrop-filter: blur(5px);
@@ -118,7 +118,7 @@ nav a:hover {
 }
 
 
-/* --- SECCIÓN HERO --- */
+/* --- SECCIÓN 1: HERO (INICIO) --- */
 .hero-section {
   text-align: center;
   background-color: #1E1E1E;
@@ -132,7 +132,7 @@ nav a:hover {
 
 .company-logo {
   width: 100%;
-  max-width: 240px;
+  max-width: 500px;
   min-width: 120px;
   height: auto;
   padding: clamp(25px, 20%, 45px);
@@ -180,15 +180,15 @@ nav a:hover {
 }
 
 
-/* --- AJUSTE DE ALINEACIÓN AL NAVEGAR A PROYECTOS --- */
+/* --- SECCIÓN 2: PROYECTOS (CARRUSEL PANTALLA COMPLETA) --- */
 #proyectos {
-  scroll-margin-top: 70px; /* Compensación equivalente a la altura del header */
+  scroll-margin-top: 70px;
 }
 
 .full-screen-section {
-  padding: 1.5rem 0 0 0 !important; /* Ajuste de relleno superior interno */
+  padding: 1.5rem 0 0 0 !important;
   width: 100vw;
-  height: calc(100vh - 70px);       /* Ajusta la altura visible quitando el header */
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -202,26 +202,7 @@ nav a:hover {
 .carousel-container {
   position: relative;
   width: 100%;
-  flex: 1; /* Ocupa todo el alto restante de la pantalla debajo del título */
-  overflow: hidden;
-  background-color: #2A2A2A;
-  border-radius: 0;
-}
-
-.full-screen-section .carousel-overlay-title {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  margin: 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+  flex: 1;
   overflow: hidden;
   background-color: #2A2A2A;
   border-radius: 0;
@@ -235,9 +216,9 @@ nav a:hover {
 }
 
 .carousel-slide.active {
-  display: flex;             /* Cambiado a flex para centrar contenido */
-  align-items: center;       /* Centrado vertical */
-  justify-content: center;   /* Centrado horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
@@ -255,7 +236,7 @@ nav a:hover {
 .caption {
   position: relative;
   z-index: 2;
-  text-align: center;        /* Alinea el texto al centro */
+  text-align: center;
   color: white;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
   padding: 0 1rem;
@@ -271,16 +252,6 @@ nav a:hover {
 
 .caption p {
   font-size: 18px;
-}
-
-/* Animación corregida que no afecta la alineación */
-@keyframes fadeIn {
-  from { 
-    opacity: 0; 
-  }
-  to { 
-    opacity: 1; 
-  }
 }
 
 .prev, .next {
@@ -308,12 +279,12 @@ nav a:hover {
 .next { right: 20px; }
 
 @keyframes fadeIn {
-  from { opacity: 0.4; }
+  from { opacity: 0; }
   to { opacity: 1; }
 }
 
 
-/* --- SECCIÓN MARCAS / CLIENTES --- */
+/* --- SECCIÓN 3: MARCAS / CLIENTES --- */
 .brands-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -353,7 +324,7 @@ nav a:hover {
 }
 
 
-/* --- SECCIÓN SERVICIOS --- */
+/* --- SECCIÓN 4: SERVICIOS --- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -395,7 +366,7 @@ nav a:hover {
 }
 
 
-/* --- SECCIÓN INFORMACIÓN DE CONTACTO --- */
+/* --- SECCIÓN 5: INFORMACIÓN DE CONTACTO (EFECTO SOBRE 3D) --- */
 .info-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -403,26 +374,47 @@ nav a:hover {
   width: 100%;
 }
 
-.info-card {
+.envelope-card {
+  position: relative;
   background: #2A2A2A;
-  padding: 2.5rem 1.8rem;
   border-radius: 8px;
   border: 1px solid #333;
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+  perspective: 1000px;
+  overflow: visible;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-card:hover {
-  transform: translateY(-4px);
-  border-color: #0599DF;
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #353535;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  transition: transform 0.5s ease-in-out, background-color 0.3s ease;
+  z-index: 3;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.envelope-body {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem 1.8rem;
+  text-align: center;
+  transition: transform 0.4s ease-out;
 }
 
 .info-icon {
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
-.info-card h3 {
+.envelope-card h3 {
   font-family: Georgia, "Lora", serif;
   font-size: 20px;
   font-weight: bold;
@@ -430,13 +422,72 @@ nav a:hover {
   margin-bottom: 0.8rem;
 }
 
-.info-card p {
+.envelope-card p {
   color: #B8B8B8;
   font-size: 16px;
 }
 
+/* Animación Hover del sobre */
+.envelope-card:hover {
+  border-color: #0599DF;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
 
-/* --- SECCIÓN FORMULARIO DE MENSAJE --- */
+.envelope-card:hover .envelope-flap {
+  transform: rotateX(180deg);
+  background-color: #0599DF;
+  z-index: 1;
+}
+
+.envelope-card:hover .envelope-body {
+  transform: translateY(-5px);
+}
+
+.envelope-card:hover .info-icon {
+  transform: scale(1.15);
+}
+
+
+/* --- BARRA DE REDES SOCIALES --- */
+.social-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+.social-icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background-color: #2A2A2A;
+  color: #E29A33;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon-btn:hover {
+  background-color: #0599DF;
+  color: #FFFFFF;
+  border-color: #0599DF;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(5, 153, 223, 0.3);
+}
+
+.social-icon-btn svg {
+  fill: currentColor;
+}
+
+
+/* --- SECCIÓN 6: FORMULARIO DE MENSAJE --- */
 .legadcy-section {
   background-color: #1E1E1E;
   color: #B8B8B8;
@@ -515,34 +566,8 @@ footer {
   width: 100%;
 }
 
-.social-links {
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
 
-.social-links a {
-  color: #E29A33;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-
-.social-links a:hover {
-  color: #0599DF;
-  text-decoration: underline;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid #333;
-  margin: 0 auto 1rem auto;
-  width: 100%;
-}
-
-
-/* --- ADAPTACIÓN CELULAR (2 COLUMNAS Y MENÚ) --- */
+/* --- ADAPTACIÓN RESPONSIVE CELULAR (MÓVIL) --- */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -581,7 +606,7 @@ footer {
   }
 
   .service-card,
-  .info-card {
+  .envelope-body {
     padding: 1.2rem 0.8rem;
   }
 
@@ -592,50 +617,13 @@ footer {
   }
 
   .service-card h3,
-  .info-card h3 {
+  .envelope-card h3 {
     font-size: 16px;
     margin-bottom: 0.4rem;
   }
 
   .service-card p,
-  .info-card p {
+  .envelope-card p {
     font-size: 13px;
   }
-}
-
-/* --- BARRA DE ICONOS DE REDES SOCIALES (SEPARADOS) --- */
-.social-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  width: 100%;
-}
-
-.social-icon-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 54px;
-  height: 54px;
-  background-color: #2A2A2A;
-  color: #E29A33;
-  border: 1px solid #333333;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.social-icon-btn:hover {
-  background-color: #0599DF;
-  color: #FFFFFF;
-  border-color: #0599DF;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(5, 153, 223, 0.3);
-}
-
-.social-icon-btn svg {
-  fill: currentColor;
 }

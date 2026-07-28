@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legadcy — Marketing que deja huella</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header>
+    <a href="#empresa" class="header-logo-link">
+      <img src="imagenes/logo.png" alt="Legadcy Logo" class="header-logo">
+    </a>
+
+    <!-- BOTÓN MENÚ MÓVIL -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">&#9776;</button>
+
+    <nav id="navMenu">
+      <a href="#empresa">Nosotros</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#marcas">Clientes</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#info-contacto">Info. Contacto</a>
+      <a href="#mensaje">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="full-width-wrapper">
+    <!-- SECCIÓN 1: HERO (INICIO) -->
+    <section id="empresa" class="hero-section snap-section">
+      <div class="hero-content">
+        <img src="imagenes/logo.png" alt="Logo de Legadcy" class="company-logo">
+        <h2>Marketing que deja huella.</h2>
+        <h2>Casos de éxito que trascienden.</h2>
+        <p>Creamos estrategias e identidades visuales consistentes que conectan tu negocio con resultados reales. Explora nuestro portafolio de proyectos destacados y marcas aliadas.</p>
+        <a href="#proyectos" class="btn-hero">VER NUESTROS PROYECTOS</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: PROYECTOS -->
+    <section id="proyectos" class="snap-section full-screen-section">
+      <h2 class="section-title">Nuestros Proyectos</h2>
+      
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="imagenes/proyecto1.jpg" alt="Campaña BTL verano '26">
+          <div class="caption">
+            <h2>Campaña BTL Verano '26</h2>
+            <p>Descripción.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="imagenes/proyecto2.jpg" alt="Campaña marketing '26">
+          <div class="caption">
+            <h2>Campaña Marketing '26</h2>
+            <p>Descripción.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="imagenes/proyecto3.jpg" alt="Estrategia 3 '26">
+          <div class="caption">
+            <h2>Lanzamiento Corporativo '26</h2>
+            <p>Descripción.</p>
+          </div>
+        </div>
+
+        <button class="prev" id="prevBtn">&#10094;</button>
+        <button class="next" id="nextBtn">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: MARCAS / CLIENTES -->
+    <section id="marcas" class="snap-section">
+      <h2 class="section-title">Marcas que Confían en Nosotros</h2>
+      <p class="section-subtitle">Hemos colaborado con empresas líderes para impulsar su presencia y alcance.</p>
+      
+      <div class="brands-grid">
+        <div class="brand-item">
+          <img src="imagenes/marca1.png" alt="Marca 1">
+        </div>
+        <div class="brand-item">
+          <img src="imagenes/marca2.png" alt="Marca 2">
+        </div>
+        <div class="brand-item">
+          <img src="imagenes/marca3.png" alt="Marca 3">
+        </div>
+        <div class="brand-item">
+          <img src="imagenes/marca4.png" alt="Marca 4">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: SERVICIOS -->
+    <section id="servicios" class="snap-section">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">Soluciones estratégicas adaptadas a las necesidades de tu marca.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📣</div>
+          <h3>Servicio 1</h3>
+            <p>Descripción.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚀</div>
+          <h3>Servicio 2</h3>
+            <p>Descripción.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>Servicio 3</h3>
+            <p>Descripción.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>Servicio 4</h3>
+            <p>Descripción.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: INFORMACIÓN DE CONTACTO Y UBICACIÓN -->
+    <section id="info-contacto" class="snap-section">
+      <h2 class="section-title">Información de Contacto</h2>
+      <p class="section-subtitle">Encuéntranos o comunícate directamente con nuestro equipo.</p>
+      
+      <div class="info-cards-grid">
+        <!-- TARJETA 1: TELÉFONO DESCOLGÁNDOSE -->
+        <div class="info-card card-standalone phone-card">
+          <div class="top-icon-badge phone-badge">
+            <div class="info-icon phone-icon">📞</div>
+          </div>
+          <div class="card-content-body">
+            <h3>Atención Telefónica</h3>
+            <p class="reveal-text">55 1234 5678</p>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: SOBRE DE CORREO -->
+        <div class="info-card envelope-card">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="info-icon">✉️</div>
+            <h3>Correo Electrónico</h3>
+            <p class="reveal-text">@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- TARJETA 3: RELOJ CORRIENDO -->
+        <div class="info-card card-standalone clock-card">
+          <div class="top-icon-badge clock-badge">
+            <div class="info-icon clock-icon">
+              <svg viewBox="0 0 24 24" class="clock-svg">
+                <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line class="hand hour-hand" x1="12" y1="12" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line class="hand minute-hand" x1="12" y1="12" x2="12" y2="5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-content-body">
+            <h3>Horario de Oficina</h3>
+            <p class="reveal-text">Lunes a Viernes de 9:00 AM a 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: FORMULARIO DE MENSAJE -->
+    <section id="mensaje" class="snap-section legadcy-section">
+      <h2 class="section-title">Envíanos un Mensaje</h2>
+      <p class="section-subtitle">¿Tienes un proyecto en mente? Escríbenos y te responderemos a la brevedad.</p>
+      
+      <div class="letter-perspective-wrapper">
+        <div id="bigEnvelopeCard" class="contact-section big-envelope-card">
+          <!-- SOLAPA DEL SOBRE -->
+          <div class="big-envelope-flap"></div>
+
+          <!-- FORMULARIO -->
+          <form id="contactForm" class="letter-inner-form">
+            <div class="form-group">
+              <label for="nombre">Nombre Completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" name="asunto" placeholder="Cotización, información, etc." required>
+            </div>
+
+            <div class="form-group">
+              <label for="mensajeForm">Mensaje</label>
+              <textarea id="mensajeForm" name="mensaje" rows="5" placeholder="Platícanos sobre tu proyecto..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">ENVIAR CORREO</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- REDES SOCIALES -->
+      <div class="social-bar-container">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Legadcy. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

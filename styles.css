@@ -90,7 +90,7 @@ header {
 }
 
 .header-logo {
-  height: 60px;
+  height: 30px;
   width: auto;
   object-fit: contain;
 }
@@ -119,43 +119,51 @@ nav a:hover {
 }
 
 
-/* --- SECCIÓN 1: HERO (ELEVADO Y GRID HORIZONTAL) --- */
+/* --- SECCIÓN 1: HERO (OPTIMIZADO PARA LOGO PANORÁMICO GRANDE) --- */
 .hero-section {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 80px;
-  padding-bottom: 2rem;
+  height: 100vh; /* Fija la altura total a la vista de la pantalla */
+  padding-top: 85px; /* Altura del header fijo */
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   box-sizing: border-box;
   background-image: url("imagenes/fondo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow: hidden; /* Garantiza que no aparezca barra de scroll vertical */
 }
 
 .hero-content {
   width: 100%;
-  max-width: 1150px;
-  margin: 0 auto;
+  max-width: 1350px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Agrupa arriba el logo y abajo los textos */
   align-items: center;
-  justify-content: center;
 }
 
+/* CONTENEDOR DEL LOGO GRANDE */
 .hero-logo-wrapper {
   width: 100%;
+  flex: 1; /* Ocupa todo el espacio sobrante superior */
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  margin-bottom: 0;
 }
 
+/* LOGO PANORÁMICO GIGANTE */
 .company-logo {
   width: 100%;
-  max-width: 580px;
+  max-width: 1100px; /* Ancho máximo amplio para pantallas grandes */
+  max-height: 42vh;   /* Alto masivo aprovechando que el archivo ya no tiene espacio sobrante */
   height: auto;
   object-fit: contain;
   display: block;
@@ -216,7 +224,7 @@ nav a:hover {
 }
 
 
-/* --- SECCIÓN 2: PROYECTOS (CARRUSEL) --- */
+/* --- SECCIÓN 2: PROYECTOS (CARRUSEL SOLO IMÁGENES) --- */
 #proyectos {
   scroll-margin-top: 70px;
   position: relative;
@@ -257,7 +265,7 @@ body, html {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #161616;
+  background-color: #121212;
 }
 
 .carousel-track {
@@ -267,18 +275,17 @@ body, html {
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Diapositiva: Layout en Grid de 2 columnas */
+/* Diapositiva centrada para una sola imagen */
 .carousel-slide {
   min-width: 100vw;
   width: 100vw;
   height: 100%;
   flex-shrink: 0;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr; /* 60% imagen, 40% texto */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 5rem 6rem 3rem 6rem; /* Espaciado interno para no tapar los botones */
-  gap: 2rem;
+  padding: 4rem 2rem 2rem 2rem; /* Espaciado para evitar que choque con el título o bordes */
 }
 
 .carousel-slide.active {
@@ -288,15 +295,16 @@ body, html {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-/* Muestra la imagen completa de 2000 x 1414 sin recortar */
+/* Imagen limpia sin recortes */
 .carousel-slide img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain; /* Evita que la imagen se recorte */
+  object-fit: contain;
   display: block;
-  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* BOTONES DE NAVEGACIÓN */
@@ -326,8 +334,8 @@ body, html {
   transform: translateY(-50%) scale(1.1);
 }
 
-.btn-prev { left: 20px; }
-.btn-next { right: 20px; }
+.btn-prev { left: 25px; }
+.btn-next { right: 25px; }
 
 /* Columna de Imagen */
 .slide-image-col {
@@ -1197,29 +1205,29 @@ footer {
 }
 
 
-/* --- CONTENEDOR DE TEXTO VERTICAL --- */
+/* Contenedor del texto intermedio */
 .vertical-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
   text-align: center;
   width: 100%;
 }
 
 .vertical-text-container h2 {
   font-family: Georgia, "Lora", serif;
-  font-size: 24px;
+  font-size: 35px; /* Ligeramente más compacto para equilibrio visual */
   font-weight: bold;
   color: #E29A33;
   line-height: 1.3;
 }
 
 .vertical-text-container p {
-  color: #B8B8B8;
-  font-size: 16px;
-  line-height: 1.4;
+  color: #f3f3f3;
+  font-size: 25px;
+  line-height: 1.3;
 }
 
 .vertical-text-container.visible .split-char {

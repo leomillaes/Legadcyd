@@ -199,30 +199,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const mensajeTextarea = document.getElementById('mensajeForm');
   const contactoSection = document.getElementById('mensaje');
 
+  // Las claves ahora coinciden exactamente con los atributos data-servicio del HTML
   const mensajesPredeterminados = {
-    'Servicio 1': {
+    'Branding': {
       asunto: 'Branding',
-      mensaje: 'Hola equipo de Legadcy,\n\nMe gustaría empezar a crear mi legado y construir una identidad de marca única..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nMe gustaría empezar a crear mi legado y construir una identidad de marca única...'
     },
-    'Servicio 2': {
+    'Publicidad Impresa': {
       asunto: 'Publicidad Impresa (PoP, Folletería clásica)',
-      mensaje: 'Hola equipo de Legadcy,\n\nEstoy buscando los siguientes materiales impresos para impulsar mi legado..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nEstoy buscando los siguientes materiales impresos para impulsar mi legado...'
     },
-    'Servicio 3': {
+    'Publicidad Exterior': {
       asunto: 'Publicidad Exterior (OOH)',
-      mensaje: 'Hola equipo de Legadcy,\n\nQuiero que mi legado sea visto en grande. Me interesa cotizar opciones de publicidad exterior..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nQuiero que mi legado sea visto en grande. Me interesa cotizar opciones de publicidad exterior...'
     },
-    'Servicio 4': {
+    'Promocionales': {
       asunto: 'Promocionales',
-      mensaje: 'Hola equipo de Legadcy,\n\nEstoy buscando artículos promocionales creativos para dejar huella en mis clientes..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nEstoy buscando artículos promocionales creativos para dejar huella en mis clientes...'
     },
-    'Servicio 5': {
+    'Activaciones de marca': {
       asunto: 'Activaciones de marca',
-      mensaje: 'Hola equipo de Legadcy,\n\nMe interesa conectar con mi público de forma única. Quiero cotizar una activación de marca..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nMe interesa conectar con mi público de forma única. Quiero cotizar una activación de marca...'
     },
-    'Servicio 6': {
+    'Creación de Páginas Web': {
       asunto: 'Creación de Páginas Web',
-      mensaje: 'Hola equipo de Legadcy,\n\nQuiero llevar mi negocio al siguiente nivel digital con una nueva página web..."'
+      mensaje: 'Hola equipo de Legadcy,\n\nQuiero llevar mi negocio al siguiente nivel digital con una nueva página web...'
     }
   };
 
